@@ -184,4 +184,5 @@ No sensitive internals or proprietary doctrine will be published.
 ECHO is under active development.
 Documentation is being prepared as the architecture stabilizes.
 
-This repository reflects the shape of the system, not its internal logic. does this go to 7 then change to 2?
+This repository reflects the shape of the system, not its internal logic.
+
