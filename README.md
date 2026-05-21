@@ -36,8 +36,8 @@ continuity anchors
 Next:
 formal state machine
 long‑term scaffolding
-4. HUD Layer — Emerging
 
+4. HUD Layer — Emerging
 A cognitive overlay that highlights what matters and filters noise.
 Active today:
 clarity prompts
