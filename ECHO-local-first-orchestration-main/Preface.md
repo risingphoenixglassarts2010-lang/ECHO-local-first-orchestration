@@ -1,15 +1,19 @@
-ECHO — A Cognitive Exoskeleton in Active Development
-A doctrine‑anchored, local‑first cognitive framework designed to extend human agency
-
 Preface
-ECHO began as an experiment in building a cognitive exoskeleton — a system that strengthens human thinking rather than replacing it.
-It is intentionally local‑first, privacy‑preserving, and human‑directed.
+ECHO began as an experiment in building a cognitive exoskeleton — a system designed to strengthen human thinking rather than replace it. It is intentionally:
+
+local‑first
+
+privacy‑preserving
+
+deterministic
+
+human‑directed
 
 ECHO is not an autonomous agent.
 It does not act on its own.
 It does not pursue goals independently.
 
-Instead, it provides:
+Instead, ECHO provides:
 
 structure
 
@@ -21,17 +25,17 @@ cognitive scaffolding
 
 deterministic execution pathways
 
-…while keeping the human fully in control.
+All while keeping the human fully in control.
 
-ECHO is built on a simple principle:
+Core Principle:
 
-Human direction is the scarce resource.
-AI is the amplifier.
+Human direction is the scarce resource. AI is the amplifier.
 
 Everything in the architecture reflects this.
 
-1. Architecture Overview — The Seven‑Layer Exoskeleton
-ECHO is built as a seven‑layer cognitive stack, each layer serving a distinct role in stabilizing, extending, and protecting human cognition.
+The Seven‑Layer Cognitive Exoskeleton
+ECHO is built as a seven‑layer cognitive stack.
+Each layer stabilizes, extends, or protects human cognition.
 
 1. Doctrine Layer — Complete
 The philosophical core.
@@ -48,20 +52,34 @@ This layer ensures ECHO behaves predictably and consistently.
 3. State Layer — Emerging
 Compressed memory, continuity, and cognitive scaffolding.
 
-Active today:  
-Short‑term summaries and continuity anchors.
+Active today:
 
-Next:  
-A formal state machine and long‑term scaffolding.
+short‑term summaries
+
+continuity anchors
+
+Next:
+
+formal state machine
+
+long‑term scaffolding
 
 4. HUD Layer — Emerging
 A cognitive overlay that highlights what matters and filters noise.
 
-Active today:  
-Clarity prompts and direction reminders.
+Active today:
 
-Next:  
-Structured HUD, salience mapping, and cognitive overlays.
+clarity prompts
+
+direction reminders
+
+Next:
+
+structured HUD
+
+salience mapping
+
+cognitive overlays
 
 5. Execution Layer — Complete
 The efficiency engine.
@@ -91,16 +109,22 @@ rollback patterns
 
 consistency checks
 
-Next:  
-Full integrity safeguards and recovery logic.
+Next:
+
+full integrity safeguards
+
+recovery logic
 
 7. Evolution Layer — Emerging
 Long‑term refinement of doctrine, identity, and architecture.
 
-Next:  
-Structured evolution cycles and meta‑alignment.
+Next:
 
-2. Practical Implementation (Local‑First Setup)
+structured evolution cycles
+
+meta‑alignment processes
+
+Practical Implementation (Local‑First Setup)
 ECHO currently runs entirely on a laptop using:
 
 a local LLM
@@ -133,7 +157,7 @@ No cloud dependencies.
 No external data leakage.
 No autonomous behavior.
 
-3. Current Status
+Current Status
 ECHO is already:
 
 coherent
@@ -155,8 +179,8 @@ The foundation is strong.
 The architecture is defined.
 The system is functional.
 
-4. Roadmap — Where ECHO Is Going
-The next phase focuses on:
+Roadmap — Where ECHO Is Going
+Next steps:
 
 formalizing the state machine
 
@@ -168,7 +192,7 @@ creating a structured evolution cycle
 
 These additions will complete the cognitive exoskeleton stack.
 
-5. Repository Structure
+Repository Structure
 Code
 /01_Doctrine/README.md
 /02_Interpreter/README.md
@@ -180,7 +204,7 @@ Code
 Each section will be documented as the system matures.
 No sensitive internals or proprietary doctrine will be published.
 
-6. Project Status
+Project Status
 ECHO is under active development.
 Documentation is being prepared as the architecture stabilizes.
 
