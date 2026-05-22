@@ -153,4 +153,4 @@ community discussion
 
 long‑term evolution
 
-ECHO evolves slowly and intentionally.
+
