@@ -125,8 +125,23 @@ The architecture is public; the mechanism is not.
 
 Is ECHO production‑ready?
 ECHO is architecture‑complete and kernel‑private, with ongoing refinement.
-It is stable as a conceptual framework and evolving as a cognitive system.
+It is stable as a conceptual framework and reliable as a cognitive system, and it is already operating on real edge hardware in active use.
 
+ECHO is designed for:
+
+deterministic behavior
+
+local‑first execution
+
+stable identity
+
+predictable planning
+
+human‑directed workflows
+
+While the public release focuses on the architecture, the private kernel is already functioning in real environments, demonstrating that the design is not theoretical — it is operational.
+
+ECHO will continue to evolve slowly and intentionally, with future updates focused on refinement, clarity, and tooling rather than rapid or uncontrolled expansion.
 What’s next for ECHO?
 See the Roadmap for:
 
