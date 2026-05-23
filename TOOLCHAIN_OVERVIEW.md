@@ -30,7 +30,6 @@ Ready to be triggered by ECHO through text, voice, or UI.
 This maturity ladder ensures safety, predictability, and long-term maintainability.
 
 Current Capabilities
-Abstracted & Public-Safe
 
 ECHO’s toolchain currently includes reusable tools in the following categories:
 
