@@ -1,5 +1,4 @@
 ECHO Toolchain Overview
-Public-Safe Version
 
 A high-level description of the operational tools currently active in the ECHO ecosystem.
 
