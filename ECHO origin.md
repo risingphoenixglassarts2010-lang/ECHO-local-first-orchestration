@@ -1,26 +1,46 @@
+ECHO did not begin as a technical project.
 
-ECHO did not begin as a research project.
+It began as a survival mechanism.
 
-It began during a period when my cognitive bandwidth was severely constrained
+After a traumatic brain injury, my mind no longer worked the way it once did.
+Context slipped. Threads broke. Complex reasoning collapsed under pressure.
+Tasks that used to be effortless suddenly required more cognitive bandwidth than I had.
 
- following a traumatic brain injury. Holding context, maintaining continuity, and
+I wasn’t trying to build a system.
+I was trying to stay coherent.
 
- managing complex reasoning became difficult under load.
+I needed something that could hold structure when I couldn’t.
+Something that could preserve continuity when my memory faltered.
+Something that could keep my thoughts from scattering when the load became too heavy.
 
-I needed a system that could stabilize thought when my mind was under strain— a
+So I built a cognitive exoskeleton.
 
- cognitive exoskeleton that could preserve structure, enforce boundaries, and prevent 
+Not to replace my thinking — but to stabilize it.
+Not to automate my decisions — but to anchor them.
+Not to make me superhuman — but to help me remain myself.
 
-overwhelm from turning into chaos.
+ECHO emerged from that necessity.
+Its architecture reflects the constraints of its origin:
 
-ECHO emerged from that necessity. Its architecture reflects the conditions it was born in: 
+safety‑first, because unpredictability was dangerous
 
-safety-first, deterministic, bounded, and designed to protect the human at the center of 
+deterministic, because drift was destabilizing
 
-the system.
+bounded, because overwhelm was real
 
-This project is the formalization of those principles into an open-source architecture for
+human‑centered, because the system existed to protect me, not replace me
 
- anyone who needs clarity under pressure, stability under complexity, or structure under 
+What began as a personal lifeline has become an open‑source architecture for anyone who needs clarity under pressure, stability under complexity, or structure under cognitive load — whether from injury, neurodiversity, burnout, or the sheer demands of modern life.
 
-cognitive load.
+ECHO is not about building more powerful AI.
+It’s about building trustworthy AI.
+
+It’s not about autonomy.
+It’s about coherence.
+
+It’s not about replacing human cognition.
+It’s about protecting it.
+
+Sometimes the mind needs scaffolding.
+There is no shame in that.
+There is strength in building it.
