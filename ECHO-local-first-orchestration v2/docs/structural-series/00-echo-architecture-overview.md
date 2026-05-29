@@ -89,7 +89,6 @@ ECHO solves this by separating cognition from action.
 
 ECHO is built on three constitutional layers:
 
-- Code
 ```text
 [Layer 0] Cognition (Model)
 [Layer 1] Governance (Interpreter)
