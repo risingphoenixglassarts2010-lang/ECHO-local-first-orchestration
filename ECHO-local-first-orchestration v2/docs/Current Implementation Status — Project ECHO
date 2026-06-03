@@ -1,0 +1,104 @@
+Current Implementation Status — Project ECHO / CANDLE-01
+
+Project ECHO has moved beyond conceptual architecture and is now entering the early private implementation stage through the CANDLE-01 reference environment.
+
+The public repository continues to describe the doctrine, trust model, architectural shape, and safety principles of ECHO. The private CANDLE-01 environment is now being used to test how those principles translate into a working local-first command structure.
+
+Current Development Stage
+
+ECHO/CANDLE-01 is currently in a private prototype implementation phase.
+
+The system now has early working components for:
+
+local command routing
+tool registration
+command validation
+dry-run dispatch testing
+safety-rule scaffolding
+safety-kernel enforcement testing
+append-only execution logging
+lightweight local memory/state persistence
+developer handoff documentation
+milestone-based implementation planning
+
+These components are being built and tested privately as part of the CANDLE-01 reference implementation.
+
+What Has Been Implemented Privately
+
+The private implementation currently includes the first version of a local command spine:
+
+Operator command
+→ routing registry
+→ dispatcher
+→ safety check
+→ dry-run or approved execution path
+→ structured logging
+→ local state/memory update where appropriate
+
+This is not yet a production system, but the core implementation pattern is now present.
+
+The current build demonstrates that ECHO’s public doctrine can be translated into practical system behavior:
+
+commands are registered before use
+commands can be validated against a registry
+disabled or unknown commands can be blocked
+safety rules are checked before execution
+command activity can be logged
+memory/state can persist locally
+test paths can run without live execution
+system behavior can be inspected after the fact
+Current Maturity Level
+
+At this stage, the implementation should be described as:
+
+Private working prototype / early reference implementation
+
+A more precise label would be:
+
+CANDLE-01 Reference Implementation — Phase 1: Command Spine Prototype
+
+The current build is not being presented as complete, commercial-ready, or externally deployable. It is a controlled private implementation used to validate ECHO’s architecture under real local operating conditions.
+
+What This Proves
+
+The current prototype shows that ECHO is not only a written framework.
+
+It now has a developing operational structure capable of supporting:
+
+deterministic tool routing
+local-first execution boundaries
+safety-first command gating
+operator-controlled workflows
+structured audit trails
+early continuity across sessions
+future integration with n8n, local AI retrieval, dashboards, and workflow automation
+
+In plain terms:
+
+The doctrine is public. The private reference implementation has begun proving the command, safety, logging, and memory spine.
+
+What Is Not Public
+
+The following remain private and are not included in the public repository:
+
+private kernel logic
+command dispatcher internals
+safety-rule implementation details
+memory implementation details
+command maps
+trust tables
+local folder paths
+private workflow logic
+n8n workflow internals
+implementation scripts
+sensitive operational data
+
+The public repository describes the shape and principles of ECHO. The private implementation contains the operational machinery.
+
+Public-Safe Summary
+
+Project ECHO is currently transitioning from public architectural doctrine into a private working reference implementation through CANDLE-01.
+
+The first implementation layer now includes a local command spine with early routing, validation, safety gating, logging, dry-run testing, and local state persistence. This confirms that the ECHO model can move from theory into a practical local-first operating environment while preserving the core principles of human control, deterministic execution, safety boundaries, and auditability.
+
+The implementation remains private, experimental, and under operator control. Public materials continue to expose only the architecture, doctrine, and trust model — not the internal execution machinery.
