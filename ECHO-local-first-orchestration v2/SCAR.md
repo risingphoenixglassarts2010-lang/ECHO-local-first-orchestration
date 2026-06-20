@@ -146,7 +146,7 @@ A minimal SCAR-style runtime should:
 
 ECHO is an early working implementation of the SCAR pattern.
 
-ECHO demonstrates local-first governed AI orchestration where model output remains proposal-only while operator authority, deterministic validation, trace records, and fail-closed controls govern whether any protected action may proceed.
+ECHO demonstrates local-first governed AI orchestration where model output remains proposal-only while operator authority, deterministic validation, trace records, and fail-closed controls govern execution.
 
 ECHO is not the SCAR category itself.
 
@@ -194,6 +194,8 @@ This reduces risk from hallucination, self-authorization, hidden network effects
 
 ## License and Attribution
 
-This specification should be released under my MIT license 
+This specification is released under the MIT License. See LICENSE for full terms.
+
+Copyright (c) 2026 risingphoenixglassarts2010-lang
 
 Governance changes should require contributor review, documented rationale, and a traceable change history.
