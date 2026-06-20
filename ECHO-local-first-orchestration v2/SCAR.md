@@ -194,6 +194,6 @@ This reduces risk from hallucination, self-authorization, hidden network effects
 
 ## License and Attribution
 
-This specification should be released under a license compatible with the host project.
+This specification should be released under my MIT license 
 
 Governance changes should require contributor review, documented rationale, and a traceable change history.
