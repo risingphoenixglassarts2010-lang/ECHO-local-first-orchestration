@@ -1,138 +1,258 @@
-**Release Notes — v0.1
-Initial Architecture Release**
+# Release Notes — v0.2 Public Spine & SCAR Framing Update
 
-This release introduces the first public version of the ECHO architecture.
-It establishes the conceptual, philosophical, and structural foundation of the system while keeping all protected internal mechanisms private until patent filing.
+**Status:** Public architecture update
+**Release Type:** Documentation / public framing / safety doctrine update
+**Relationship:** ECHO remains the active implementation path; SCAR names the broader runtime governance pattern.
 
-This is the architecture‑only release — the blueprint, not the engine.
+---
 
-Included in v0.1
-✔ Seven‑Layer Architecture Structure
-All seven cognitive layers are represented as folders with high‑level documentation:
+## Summary
 
-Doctrine
+This release expands ECHO from an initial architecture-only public release into a clearer public spine for the project.
 
-Interpreter
+The v0.2 update strengthens the public explanation of what ECHO is, why it exists, who it may help, and how it relates to the broader safety-critical AI runtime pattern now identified as **SCAR — Safety-Critical AI Runtime**.
 
-State
+This remains a public-safe documentation release.
 
-HUD
+It explains doctrine, scope, safety boundaries, and project direction without exposing protected implementation details, private runner logic, internal schemas, packet structures, file paths, authorization mechanics, or runtime internals.
 
-Execution
+---
 
-Integrity
+## What This Release Adds
 
-Evolution
+### 1. SCAR — Safety-Critical AI Runtime
 
-These define the shape of ECHO without exposing internal logic.
+This release introduces the public SCAR framing.
 
-✔ Preface (Philosophy & Intent)
-A high‑level explanation of:
+SCAR names the broader runtime governance pattern underneath ECHO:
 
-why ECHO exists
+> **A language model may propose.
+> It may not authorize, execute, or escalate.**
 
-the principles behind its design
+SCAR defines the separation between:
 
-the problems it solves
+* model reasoning
+* governance
+* operator authority
+* controlled execution
+* traceable records
 
-the values it enforces
+The purpose of SCAR is to make clear that reasoning is not permission and that AI-generated proposals should not directly cause unmediated real-world effects.
 
-This frames ECHO as a cognitive exoskeleton, not an agent.
+ECHO is presented as an early implementation path for SCAR principles.
 
-✔ Full Documentation Suite
-Initial versions of:
+---
 
-Overview
+### 2. Updated ECHO Scope
 
-Runtime Model
+The project now includes a clearer public boundary document explaining what ECHO is and what ECHO is not.
 
-Design Principles
+ECHO is described as:
 
-Glossary
+* local-first
+* governance-first
+* modular
+* human-centered
+* non-autonomous
+* bounded by operator authority
+* designed for deterministic, inspectable workflows
 
-FAQ
+The update clarifies that ECHO is not:
 
-Roadmap
+* a chatbot
+* an autonomous agent
+* a surveillance system
+* a cloud-first platform
+* a monolithic assistant
+* a replacement for human judgment
+* a medical device or clinical treatment
 
-Why Local‑First
+This scope clarification reduces misunderstanding and reinforces ECHO’s safety-first identity.
 
-Announcement
+---
 
-Contributing
+### 3. Updated Runtime Model
 
-These documents make the architecture legible without revealing sensitive mechanisms.
+The ECHO runtime model has been updated to better align with the SCAR doctrine.
 
-✔ Text‑Based Architecture Diagram
-A clear, human‑readable diagram showing how the seven layers relate to one another.
+The runtime is now described as a human-directed cognitive support and orchestration pipeline, not an agent loop.
 
-✔ Runtime Model
-A detailed explanation of how ECHO behaves during real use:
+The public runtime model now emphasizes:
 
-Input
+* human intent as the cycle anchor
+* interpretation and context continuity
+* cognitive overlay / HUD support
+* proposal generation
+* governance review
+* authorization boundary
+* external controlled execution
+* deliberate human-directed evolution
 
-Interpretation
+This keeps the public model aligned with the core rule:
 
-Continuity
+> **Reasoning is not permission.**
 
-Salience
+---
 
-Planning
+### 4. ECHO & The Brain
 
-Integrity checks
+This release adds a more accessible explanation of how ECHO relates to cognitive support.
 
-Long‑term evolution
+This document explains ECHO as cognitive scaffolding for people who experience challenges such as:
 
-This describes the flow, not the implementation.
+* traumatic brain injury
+* executive dysfunction
+* ADHD
+* autism / AuDHD
+* chronic fatigue
+* PTSD
+* burnout
+* cognitive overload
+* context loss
+* dropped task threads
 
-✔ Glossary of Core Terms
-Definitions for key concepts used throughout the architecture.
+The document makes clear that ECHO is not medical advice, not therapy, not a diagnosis tool, not a cure, and not a replacement for professional care.
 
-✔ Design Principles
-The foundational rules that guide ECHO’s behavior and structure.
+Its purpose is to explain the lived-experience origin of ECHO and why the system prioritizes continuity, structure, pacing, and human authority.
 
-✔ Roadmap
-A multi‑phase plan outlining how ECHO will evolve over time:
+---
 
-Foundation
+### 5. Origin and Human Context
 
-Refinement
+The project origin statement now more clearly explains that ECHO began as a survival mechanism after traumatic brain injury, not as a conventional software product.
 
-Tooling
+The public origin framing emphasizes:
 
-Long‑term Evolution
+* coherence under cognitive load
+* continuity when memory fails
+* structure under pressure
+* human authority over automation
+* safety before capability
+* trustworthy AI over powerful AI
 
-Not Included (By Design)
-This release intentionally excludes all sensitive or proprietary components.
-These remain private until patent filing.
+This gives public readers a human reason to understand ECHO’s design choices.
 
-❌ Internal Logic
-No kernel, no mechanisms, no algorithms.
+---
 
-❌ Doctrine Text
-The actual doctrine remains private.
+### 6. Toolchain Overview
 
-❌ Interpreter Prompts
-Identity‑stabilization logic is not included.
+This release adds a public-safe overview of the ECHO toolchain.
 
-❌ Workflow Internals
-No execution scaffolds, no automation logic.
+The toolchain is described at a high level as a growing set of local, deterministic, operator-directed tools that support:
 
-❌ State Structures
-No memory compression, no continuity anchors.
+* workspace creation
+* project setup
+* backup and snapshot routines
+* file intake
+* organization
+* operator convenience
+* repeatable workflow preparation
 
-These omissions are intentional and necessary for IP protection.
+This overview intentionally avoids private script names, command syntax, file paths, schemas, runner internals, authorization mechanics, and implementation-specific validation contracts.
 
-Summary
-v0.1 establishes the public architecture of ECHO:
+The purpose is to show that ECHO is supported by practical local tooling while protecting the implementation boundary.
 
-The structure is visible
+---
 
-The philosophy is clear
+## Updated Public Architecture Position
 
-The documentation is complete
+With v0.2, ECHO is now publicly framed as:
 
-The roadmap is defined
+> **A local-first, governance-first AI orchestration architecture designed to keep AI useful without allowing it to become unchecked authority.**
 
-The kernel remains private
+The public doctrine is:
 
-This release marks the beginning of ECHO’s public evolution — slow, intentional, and grounded in local‑first, human‑directed principles.
+> **The model may propose.
+> Governance constrains.
+> The operator authorizes.
+> Controlled tools execute.**
+
+This release strengthens ECHO’s position as a human-centered architecture for safe AI-assisted cognition, organization, and workflow support.
+
+---
+
+## What Remains Private
+
+This release intentionally does not include protected internal implementation details.
+
+The following remain private or implementation-specific:
+
+* internal runner logic
+* private scripts
+* local file paths
+* packet formats
+* authorization packet structures
+* schema internals
+* queue logic
+* database schemas
+* hash verification methods
+* closeout mechanics
+* rollback implementation
+* governance mutation controls
+* exact execution-boundary logic
+* private workflow internals
+* sensitive doctrine text
+* internal prompts or identity-stabilization logic
+
+These omissions are intentional.
+
+The public repository explains the architecture, doctrine, scope, and safety principles while keeping the protected mechanism private.
+
+---
+
+## Public-Safe Release Boundary
+
+v0.2 is still not a full implementation release.
+
+It is a public spine update.
+
+It establishes:
+
+* clearer authorship framing
+* clearer ECHO/SCAR relationship
+* clearer safety doctrine
+* clearer cognitive-support origin
+* clearer project boundaries
+* clearer toolchain categories
+* clearer non-autonomy commitments
+
+It does not publish a rebuildable runtime blueprint.
+
+---
+
+## Included in v0.2
+
+This update includes or updates public documentation related to:
+
+* SCAR — Safety-Critical AI Runtime
+* ECHO scope and boundaries
+* ECHO runtime model
+* ECHO origin statement
+* ECHO and cognitive support
+* ECHO toolchain overview
+* local-first governed orchestration
+* human authority and operator control
+* fail-closed safety doctrine
+* public-safe project framing
+
+---
+
+## Summary
+
+v0.1 established ECHO’s initial public architecture.
+
+v0.2 strengthens the public spine.
+
+This release makes the project easier to understand without exposing the protected implementation.
+
+ECHO remains the active build path.
+
+SCAR names the broader runtime governance pattern.
+
+The core principle remains unchanged:
+
+> **Reasoning is not permission.**
+
+ECHO is not about giving AI more autonomy.
+
+It is about building structure, safety, continuity, and human control into AI-assisted work from the beginning.
