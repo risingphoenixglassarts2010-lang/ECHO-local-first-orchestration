@@ -1,161 +1,211 @@
-ECHO Runtime Model
+# ECHO Runtime Model
+
 The ECHO Runtime Model describes how the system behaves during real use.
-It is not an “agent loop.”
-It is a human‑directed cognitive pipeline designed to maintain stability, coherence, and determinism while extending human capability.
+
+It is not an agent loop.
+
+It is a human-directed cognitive support and orchestration pipeline designed to maintain continuity, reduce cognitive load, preserve context, and support deterministic, governed workflows.
 
 ECHO does not act on its own.
-It interprets, structures, and supports — always under human authority.
 
-Below is the expanded, layered runtime flow.
+It interprets, structures, validates, and supports — always under human authority and bounded governance.
 
-Flow of Operation
-1. Input — The human provides direction
-Every cycle begins with explicit human intent.
-ECHO does not infer goals, initiate tasks, or assume autonomy.
+---
+
+## Flow of Operation
+
+### Input — Human Intent
+
+Every runtime cycle begins with explicit human intent.
+
+ECHO does not originate goals, create objectives, or assume authority.
+
 The user provides:
 
-a request
+* a request
+* a question
+* a task
+* a direction
+* a clarification
 
-a question
+Human intent is the anchor for the entire cycle.
 
-a task
+---
 
-a direction
+### Interpretation — Aligning Intent
 
-a clarification
+The Interpretation Layer translates human input into structured understanding.
 
-This input is the anchor for the entire runtime cycle.
-
-2. Interpreter — Aligns with doctrine and stabilizes identity
-The Interpreter Layer ensures that ECHO behaves consistently across time.
 It applies:
 
-doctrine
+* doctrine
+* values
+* interpretive constraints
+* identity boundaries
+* contextual discipline
 
-values
+Its purpose is to maintain consistency and prevent drift in how requests are understood.
 
-tone
+This layer helps ensure that ECHO remains aligned with its intended operating principles.
 
-identity constraints
+---
 
-interpretive discipline
+### State — Continuity and Context
 
-This prevents drift, persona shifts, or inconsistent behavior.
-The Interpreter is the “governor” that ensures ECHO remains ECHO.
+The State Layer provides continuity across interactions.
 
-3. State — Pulls continuity anchors and compressed memory
-The State Layer provides continuity without storing raw transcripts.
-It retrieves:
+It may retrieve:
 
-compressed memory
+* context anchors
+* active threads
+* compressed memory
+* relevant summaries
+* long-term scaffolding
 
-context anchors
+Its purpose is not to recreate complete history but to preserve continuity while reducing cognitive overhead.
 
-long‑term scaffolding
+---
 
-relevant summaries
+### Cognitive Overlay (HUD)
 
-active threads
+The HUD Layer functions as a cognitive support surface.
 
-This allows ECHO to maintain coherence across sessions while remaining lightweight and deterministic.
+It identifies:
 
-4. HUD — Highlights what matters and filters noise
-The HUD Layer acts as a cognitive overlay.
-It determines:
+* relevant information
+* missing information
+* constraints
+* risks
+* clarification needs
+* priority signals
 
-what is salient
+Its purpose is to reduce noise and highlight what matters most for the current task.
 
-what is irrelevant
+This is where ECHO acts most directly as cognitive scaffolding.
 
-what needs clarification
+---
 
-what constraints apply
+### Proposal Generation
 
-what risks exist
+The Proposal Layer converts intent into structured outputs.
 
-what the user is actually asking
+It may produce:
 
-This is where ECHO reduces cognitive load and surfaces the meaningful parts of the task.
+* plans
+* decomposed steps
+* workflow scaffolds
+* tool-intent descriptions
+* structured recommendations
+* deterministic sequences
 
-5. Execution — Converts intention into structured workflows
-The Execution Layer does not perform actions.
-It produces:
+This is the proposal phase of the system.
 
-structured plans
+The output remains advisory.
 
-decomposed steps
+No execution authority is created here.
 
-tool‑intent descriptions
+---
 
-workflow scaffolds
+### Governance Review
 
-deterministic sequences
+The Governance Layer validates whether generated outputs remain within approved boundaries.
 
-This is the “LLM proposes” half of the model.
-Actual execution happens externally (e.g., n8n, scripts, tools) under human control.
+It evaluates:
 
-Execution is planning, not acting.
+* doctrine alignment
+* scope constraints
+* safety requirements
+* consistency checks
+* authorization requirements
+* trust-boundary rules
 
-6. Integrity — Validates coherence and prevents drift
-The Integrity Layer ensures that the output:
+Outputs that violate constraints may be corrected, rejected, or held for review.
 
-aligns with doctrine
+This layer governs proposals.
 
-respects boundaries
+It does not grant execution authority.
 
-maintains identity
+---
 
-avoids hallucination
+### Authorization Boundary
 
-avoids autonomy
+If a protected action is involved, authorization remains external.
 
-preserves user intent
+The runtime may:
 
-remains internally consistent
+* surface the proposal
+* present supporting context
+* identify risks and constraints
 
-If something violates doctrine or safety, the Integrity Layer corrects or rejects it.
+The operator remains responsible for approval, denial, modification, or cancellation.
 
-This is ECHO’s self‑regulation mechanism.
+Authority remains human-controlled.
 
-7. Evolution — Incorporates long‑term refinements
-The Evolution Layer updates:
+---
 
-doctrine mappings
+### External Execution
 
-interpretive heuristics
+Execution occurs outside the reasoning layer.
 
-structural patterns
+External systems may include:
 
-clarity prompts
+* workflow engines
+* scripts
+* local tools
+* governed execution environments
+* SCAR-style runtime controls
 
-architectural refinements
+ECHO does not treat proposal generation as execution.
 
-This layer does not learn from user data.
-It evolves the system, not the user’s information.
+Execution remains a separate responsibility.
 
-Evolution is slow, deliberate, and always human‑approved.
+---
 
-Why this model matters
-This runtime model ensures:
+### Evolution and Refinement
 
-predictable behavior
+The Evolution Layer supports long-term improvement of the architecture itself.
 
-stable identity
+It may influence:
 
-no autonomy
+* doctrine mappings
+* workflow patterns
+* structural refinements
+* clarity improvements
+* governance refinements
 
-no drift
+Changes are deliberate, reviewable, and human-directed.
 
-no hidden state
+The system evolves through governed refinement, not autonomous self-modification.
 
-no cloud dependency
+---
 
-human‑directed cognition
+## Why This Model Matters
 
-deterministic planning
+This runtime model is designed to support:
 
-safe orchestration
+* continuity
+* predictability
+* stable identity
+* reduced cognitive load
+* deterministic planning
+* bounded memory
+* governed execution
+* transparent reasoning
+* human authority
 
-ECHO behaves like a cognitive exoskeleton — not an agent, not a chatbot, not an autonomous system.
+It is designed to prevent:
 
-It is structured, disciplined, and anchored.
+* uncontrolled autonomy
+* authority drift
+* hidden execution
+* silent escalation
+* uncontrolled persistence
+* governance bypass
+
+ECHO behaves as cognitive scaffolding and structured orchestration.
+
+It is not an autonomous actor.
+
+It is not a decision-maker.
+
+It is a human-directed system designed to keep structure stable when complexity becomes difficult to manage.
