@@ -44,3 +44,9 @@ It’s about protecting it.
 Sometimes the mind needs scaffolding.
 There is no shame in that.
 There is strength in building it.
+
+As ECHO matured, its personal safety principles revealed a broader architecture pattern: **SCAR — Safety-Critical AI Runtime**.
+
+SCAR names the governance layer underneath ECHO: a model may propose, but it may not authorize, execute, or escalate.
+
+In that sense, ECHO remains both personal and architectural — a cognitive scaffold for human continuity, and an early implementation path for safer AI runtime governance.
