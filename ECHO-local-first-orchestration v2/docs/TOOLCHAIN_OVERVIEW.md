@@ -1,139 +1,289 @@
-ECHO Toolchain Overview
+# ECHO Toolchain Overview
 
-A high-level description of the operational tools currently active in the ECHO ecosystem.
+## Public-Safe Capability Summary
 
-ECHO is supported by a growing library of reusable, deterministic tools designed to reduce friction, automate repetitive tasks, and provide stable building blocks for future workflows.
+This document provides a high-level overview of the operational toolchain currently supporting the ECHO ecosystem.
 
-These tools are local-first, safety-gated, and structured to integrate cleanly with deterministic workflow engines.
+ECHO is supported by a growing library of reusable, deterministic local tools designed to reduce friction, automate repetitive setup work, preserve structure, and provide stable building blocks for future governed workflows.
 
-This document provides a non-sensitive overview of the toolchain’s capabilities, maturity, and purpose.
+These tools are:
 
-Tool Maturity Levels
+* local-first
+* operator-directed
+* safety-gated
+* deterministic where possible
+* non-autonomous
+* designed for future integration with governed workflow systems
 
-Tools progress through a structured lifecycle:
+This document is intentionally non-sensitive. It describes tool categories, maturity levels, and safety principles without exposing private script names, file paths, command syntax, schemas, runner internals, or implementation details.
 
-Level 1 — Experimental
-Early prototypes or test scripts.
+---
 
-Level 2 — Working Tool
-Verified to run successfully in controlled conditions.
+## 1. Purpose of the Toolchain
 
-Level 3 — Reusable Tool
-Safe for repeated use with normal care.
+The ECHO toolchain exists to turn repeated manual work into predictable, inspectable, local operations.
 
-Level 4 — Workflow Candidate
-Stable enough to integrate into deterministic workflows.
+Its purpose is not to give AI unrestricted tool access.
 
-Level 5 — Future ECHO Command
-Ready to be triggered by ECHO through text, voice, or UI.
+Its purpose is to create safe building blocks that can later be connected to ECHO through governed authorization, deterministic validation, and operator control.
 
-This maturity ladder ensures safety, predictability, and long-term maintainability.
+The current toolchain supports:
 
-Current Capabilities
+* workspace creation
+* project structure generation
+* backup and snapshot routines
+* file intake and organization
+* operational convenience
+* repeatable workflow preparation
 
-ECHO’s toolchain currently includes reusable tools in the following categories:
+These tools demonstrate that ECHO is not only a theory or prompt pattern. It is being built alongside a practical local automation ecosystem.
 
-1. Project & Workspace Builders
+---
 
-Tools that generate structured working environments for:
+## 2. Tool Maturity Levels
 
-client onboarding
-product development
-creative writing
-VR demo projects
-print operations
-manuscript control
-social media campaigns
+ECHO tools progress through a structured maturity ladder.
 
-These tools create:
+This helps separate early experiments from tools that are stable enough for repeated use or future workflow integration.
 
-standardized folder structures
-planning files
-dashboards
-notes and tracking sheets
+| Level       | Name                          | Meaning                                                                                        |
+| ----------- | ----------------------------- | ---------------------------------------------------------------------------------------------- |
+| **Level 1** | Experimental                  | Early prototype or test script                                                                 |
+| **Level 2** | Working Tool                  | Verified to run successfully in controlled conditions                                          |
+| **Level 3** | Reusable Tool                 | Safe for repeated local use with normal care                                                   |
+| **Level 4** | Workflow Candidate            | Stable enough to be considered for deterministic workflow integration                          |
+| **Level 5** | Future ECHO Command Candidate | Suitable for possible future triggering through text, voice, UI, or governed workflow surfaces |
 
-Safety:
-These tools only create folders and text files. They do not delete, upload, modify, or send anything externally.
+This maturity ladder supports safety, predictability, and long-term maintainability.
 
-2. Backup & Snapshot Tools
+A tool does not become an ECHO command simply because it exists. It must first prove that it is safe, useful, bounded, and understandable.
 
-Tools that create:
+---
 
-dated backup snapshots
-manifests
-logs
-safe copy-only archives
+## 3. Current Capability Categories
 
-Safety:
-Copy-only behavior. No deletion, encryption, or modification of originals.
+The ECHO toolchain currently includes reusable tools in several broad categories.
 
-3. File Intake & Processing Tools
+The categories below are intentionally described at a high level.
 
-Tools that:
+---
 
-import staged documents
-create manifests
-generate review notes
-log runs
-organize legacy materials
+### 3.1 Project and Workspace Builders
 
-Safety:
-Copy-only. No destructive operations.
+These tools generate structured working environments for repeatable project types.
 
-4. Operator Convenience Tools
+They may support areas such as:
 
-Tools that:
+* client onboarding
+* product development
+* creative writing
+* print operations
+* manuscript organization
+* social media planning
+* local demo preparation
+* structured project tracking
 
-open terminals in the correct working directory
-reduce navigation friction
-support daily operations
+Typical outputs may include:
 
-Safety:
-Non-destructive and operator-focused.
+* standardized folder structures
+* planning documents
+* dashboards
+* notes files
+* tracking sheets
+* review areas
+* intake folders
 
-Workflow Path
+**Safety posture:**
+These tools are creation-only. They create folders and text-based planning structures. They do not delete files, upload data, send messages, modify external systems, or communicate over a network.
 
-All tools follow the same progression:
+---
 
+### 3.2 Backup and Snapshot Tools
+
+These tools support local preservation and recovery workflows.
+
+They may create:
+
+* dated backup snapshots
+* manifests
+* run logs
+* safe copy-only archives
+* reviewable backup records
+
+**Safety posture:**
+These tools use copy-only behavior. They do not delete originals, encrypt originals, overwrite originals, or modify source material.
+
+---
+
+### 3.3 File Intake and Processing Tools
+
+These tools help bring staged materials into a more organized local structure.
+
+They may support:
+
+* document intake
+* manifest creation
+* review-note generation
+* run logging
+* legacy material organization
+* local staging workflows
+
+**Safety posture:**
+These tools are designed around copy-only or organization-first behavior. They avoid destructive operations and keep original materials preserved unless the operator explicitly chooses otherwise outside the tool.
+
+---
+
+### 3.4 Operator Convenience Tools
+
+These tools reduce friction for everyday work.
+
+They may help:
+
+* open the correct working area
+* reduce navigation steps
+* prepare a local work session
+* support repeatable daily operations
+* make technical workflows easier for a human operator to use
+
+**Safety posture:**
+These tools are non-destructive and operator-focused. They are designed to reduce setup friction, not to perform autonomous work.
+
+---
+
+## 4. Workflow Path
+
+ECHO tools are intended to move through a careful progression:
+
+```text
 Manual task
 ↓
 Reusable local tool
 ↓
-Deterministic workflow engine
+Deterministic workflow candidate
 ↓
-ECHO command
+Governed ECHO command candidate
+```
 
-This demonstrates that ECHO is not theoretical. It is backed by a real, evolving automation ecosystem.
+This path matters because ECHO does not treat automation as authority.
 
-Safety Principles
+A tool must first prove that it is:
 
-All tools adhere to strict safety rules:
+* repeatable
+* bounded
+* understandable
+* locally controlled
+* safe under normal use
+* suitable for operator review
 
-root-location checks
-test-mode support
-run logging
-wrong-folder launch protection
-copy-only behavior for file operations
-no external communication
-no destructive actions
-human approval for high-risk operations
+Only then can it be considered for future integration into governed workflows.
 
-These principles align with ECHO’s doctrine of:
+---
 
-human authority
-deterministic behavior
-local-first execution
-zero autonomy
-Future ECHO Commands
-Abstracted Examples
+## 5. Safety Principles
 
-Each tool is designed to eventually be triggered by ECHO using natural language, such as:
+All ECHO toolchain work follows safety principles aligned with ECHO’s broader doctrine.
 
-“Start a new client project.”
-“Create a backup snapshot.”
-“Begin today’s print operations session.”
-“Start a new product line.”
-“Prepare a VR demo workspace.”
-“Open the command rig terminal.”
+Tools should support:
 
-These commands are conceptual examples and are not tied to any public script name, file path, or private implementation detail.
+* local-first execution
+* root-location checks
+* test-mode or dry-run behavior where appropriate
+* run logging
+* wrong-folder launch protection
+* copy-only behavior for file operations where possible
+* no external communication by default
+* no destructive actions by default
+* human approval for higher-risk operations
+* clear operator visibility into what the tool is doing
+
+These principles align with ECHO’s core commitments:
+
+* human authority
+* deterministic behavior
+* local-first operation
+* bounded execution
+* transparent records
+* zero unchecked autonomy
+
+---
+
+## 6. Future ECHO Command Candidates
+
+Some tools may eventually become future ECHO command candidates.
+
+Conceptual examples include:
+
+* “Start a new client project.”
+* “Create a backup snapshot.”
+* “Begin today’s print operations session.”
+* “Start a new product line.”
+* “Prepare a demo workspace.”
+* “Open the command workspace.”
+* “Organize this staged material for review.”
+
+These are abstract examples only.
+
+They are not public script names, command names, file paths, or implementation details.
+
+Before any tool becomes a governed ECHO command, it must pass through safety review, operator-control requirements, deterministic validation, and appropriate fail-closed behavior.
+
+---
+
+## 7. Relationship to ECHO and SCAR
+
+The toolchain is not the authority layer.
+
+The toolchain provides controlled capabilities.
+
+ECHO provides the governed orchestration structure around those capabilities.
+
+SCAR, or Safety-Critical AI Runtime, describes the broader runtime pattern: a model may propose, but it may not authorize, execute, or escalate.
+
+In this structure:
+
+* the model may help identify or describe a task
+* ECHO may structure and govern the workflow
+* the operator remains the authority
+* tools perform only bounded, approved actions
+* records preserve what happened
+
+Reasoning is not permission.
+
+Tool access is not autonomy.
+
+Automation is not authority.
+
+---
+
+## 8. Public Boundary
+
+This overview is intentionally limited.
+
+It does not publish:
+
+* private script names
+* local file paths
+* command syntax
+* packet structures
+* schemas
+* runner internals
+* queue logic
+* authorization mechanics
+* implementation-specific validation contracts
+* private workflow details
+
+The purpose of this document is to show that ECHO is supported by real local tooling while keeping the implementation boundary protected.
+
+---
+
+## 9. Summary
+
+The ECHO toolchain is a growing set of local, reusable, deterministic tools that support safe project setup, backup, intake, organization, and operator convenience.
+
+These tools are not autonomous agents.
+
+They are controlled building blocks.
+
+Their purpose is to reduce friction, preserve structure, and prepare for future governed workflows under human authority.
+
+ECHO’s toolchain demonstrates a practical path from everyday local automation toward safe, operator-controlled AI-assisted orchestration.
