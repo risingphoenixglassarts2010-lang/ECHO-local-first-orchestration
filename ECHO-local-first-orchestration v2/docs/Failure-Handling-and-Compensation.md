@@ -1,247 +1,431 @@
-Failure Handling & Compensation Logic
-Operational Subsystem — Architectural Specification
-The Failure Handling & Compensation subsystem defines how ECHO maintains determinism, safety, and human authority when downstream tools or workflows encounter errors.
-Because ECHO does not execute actions directly, all failures occur in the external deterministic environment (e.g., n8n, scripts, local tools).
-This subsystem governs how ECHO structures intent so that failures are:
+# Failure Handling & Compensation Logic
 
-detected early
+## Public Architectural Specification
 
-surfaced clearly
+The Failure Handling & Compensation subsystem defines how ECHO-derived systems should preserve safety, determinism, and human authority when something goes wrong in an external workflow or tool pathway.
 
-escalated appropriately
+This document describes the public architecture only.
 
-compensated deterministically
+It does not publish private rules, internal scripts, protected recovery logic, family/company implementation details, or environment-specific mechanisms.
 
-never handled autonomously
+---
 
-This document describes the architecture, not the implementation.
+# Purpose
 
-Purpose
 This subsystem exists to answer a critical operational question:
 
-“What happens when something goes wrong?”
+> **What happens when something goes wrong?**
 
-ECHO is a cognitive exoskeleton — not an agent — so failure handling must:
+ECHO is a local-first governance architecture, not an autonomous agent.
 
-preserve human authority
+That means failure handling must preserve the same boundaries as normal operation:
 
-maintain deterministic behavior
+* the human remains the authority
+* model output is not treated as permission
+* tools do not silently improvise
+* recovery does not become hidden autonomy
+* partial failures are surfaced clearly
+* unsafe or uncertain states fail closed
 
-avoid autonomous retries
+The goal is not to make the system “fix itself” without oversight.
 
-prevent silent corruption
+The goal is to make failure visible, bounded, recoverable, and human-directed.
 
-ensure transparency
+---
 
-support safe recovery
+# Public Design Position
 
-This subsystem ensures that ECHO remains predictable even under imperfect conditions.
+ECHO separates reasoning, governance, and execution.
 
-Core Principles
-1. LLM reasons, deterministic layer enforces
-ECHO produces structured intent.
-The external system enforces correctness.
+The public pattern is:
 
-This separation ensures that:
+```text
+Model reasons.
+Architecture governs.
+Deterministic systems execute.
+Human authority remains final.
+Records remain inspectable.
+```
 
-ECHO never performs actions
+Because ECHO does not treat model output as direct execution authority, failures should be handled in the deterministic layer around the workflow, not improvised by the model.
 
-all failures occur in a controlled environment
+Failures may occur in:
 
-recovery is deterministic and human‑directed
+* local scripts
+* workflow engines
+* file operations
+* generated documents
+* structured data outputs
+* local automation tools
+* external integrations
+* validation gates
+* approval pathways
+* recovery routines
 
-2. Validation before execution
-Before any external tool is invoked, structured output must pass:
+The Failure Handling & Compensation subsystem defines how those failures should be surfaced, constrained, and resolved.
 
-JSON schema validation
+---
 
-type checks
+# Core Principles
 
-corridor‑specific constraints
+## 1. Validate Before Acting
 
-safety boundaries
+Before any high-impact workflow proceeds, structured output should be checked against defined expectations.
+
+Validation may include:
+
+* schema checks
+* type checks
+* scope checks
+* authorization checks
+* safety checks
+* boundary checks
+* environment checks
+* operator-approval requirements
+
+If validation fails, the workflow should halt or narrow safely.
+
+It should not guess.
+
+It should not retry indefinitely.
+
+It should not silently correct itself.
+
+It should not convert uncertainty into action.
+
+---
+
+## 2. Fail Closed
+
+When a workflow becomes unsafe, unclear, expired, unauthorized, incomplete, corrupted, or inconsistent, the safer default is to stop.
+
+Fail-closed behavior may include:
+
+* halting the workflow
+* blocking execution
+* requesting operator review
+* preserving the failed output for inspection
+* marking the state as untrusted
+* requiring rebuild from a trusted point
+* refusing to continue from stale or damaged records
+
+Failure should not expand the system’s authority.
+
+Failure should reduce scope until the operator can decide what happens next.
+
+---
+
+## 3. Escalate to the Human
+
+If the system cannot safely determine what happened or what should happen next, it should escalate.
+
+Escalation means presenting the operator with:
+
+* what failed
+* where it failed
+* what was attempted
+* what was not completed
+* what state may be unsafe
+* what decisions are available
+* what risks attach to each option
+
+The operator may then approve, correct, reject, rebuild, retry, or abandon the workflow.
+
+The system may assist with explanation and structure.
+
+It does not become the decision-maker.
+
+---
+
+## 4. Compensation, Not Hidden Rollback
+
+Many real-world workflows are not truly transactional.
+
+A file write, message send, record creation, local script, or workflow step may not be easily “rolled back” in the database sense.
+
+ECHO therefore distinguishes between **rollback** and **compensation**.
+
+## Rollback
+
+Rollback means restoring a prior trusted state.
+
+This may be possible when:
+
+* snapshots exist
+* backups exist
+* version history exists
+* a prior verified artifact exists
+* the environment supports safe restoration
+
+## Compensation
+
+Compensation means performing a deliberate corrective action after partial completion or failure.
+
+Compensation may include:
+
+* deleting a created file
+* restoring a previous version
+* marking a record invalid
+* notifying the operator of partial completion
+* creating a corrective follow-up task
+* rebuilding from the last trusted artifact
+* preventing downstream use of damaged output
+
+Compensation must be explicit, visible, and human-directed.
+
+It should never be inferred silently by the model.
+
+---
+
+## 5. No Autonomous Recovery Loops
+
+ECHO-derived systems should not enter uncontrolled recovery behavior.
+
+Unsafe patterns include:
+
+* repeated retries without approval
+* model-generated fixes applied automatically
+* silent repair of corrupted records
+* automatic broadening of permissions
+* continuing after failed validation
+* hiding partial failure from the operator
+* treating a failed output as good enough
+* using stale records as if they were verified
+
+Recovery must remain bounded.
+
+A failed workflow should produce a visible state, not a hidden improvisation.
+
+---
+
+## 6. Preserve Auditability
+
+Failure handling should create or preserve enough information for later inspection.
+
+Public-safe audit concepts include:
+
+* what was attempted
+* what failed
+* what was blocked
+* what was completed
+* what remains uncertain
+* what operator decision was made
+* what recovery or compensation path was chosen
+
+The purpose of auditability is not surveillance.
+
+The purpose is accountability, debugging, and safe recovery.
+
+---
+
+# Architectural Pattern
+
+A public-safe failure-handling pattern may look like this:
+
+```text
+Structured proposal
+→ validation gate
+→ authorization check
+→ deterministic workflow step
+→ result check
+→ success record OR failure record
+→ operator-visible status
+→ compensation or recovery only if approved
+```
 
 If validation fails:
 
-the workflow halts
+```text
+Invalid proposal
+→ halt
+→ preserve failed output
+→ surface reason
+→ request operator decision
+```
 
-the operator is notified
+If execution partially succeeds:
 
-no action is taken
+```text
+Partial completion
+→ mark state as partial
+→ block downstream assumptions
+→ surface what changed
+→ offer compensation options
+→ require operator approval
+```
 
-This prevents malformed or unsafe operations.
+If records conflict:
 
-3. Human‑in‑the‑loop escalation
-If validation fails or a tool produces an unexpected result:
+```text
+Conflicting state
+→ mark state untrusted
+→ stop continuation
+→ identify last trusted record
+→ rebuild only from verified evidence
+→ require operator approval
+```
 
-the system escalates to the operator
+---
 
-the operator approves, corrects, or rejects
+# Interaction With the Seven-Layer Architecture
 
-no autonomous correction occurs
+This subsystem is not one of the seven cognitive layers.
 
-This preserves human agency and prevents drift.
+It is an operational support subsystem that helps the architecture behave safely in real-world environments.
 
-4. Compensation, not rollback
-Most workflow engines (including n8n) lack transactional rollback.
-ECHO uses explicit compensation logic instead.
+It interacts with the seven layers as follows:
 
-Compensation is:
+## Doctrine
 
-deterministic
+Defines the foundational safety commitments, refusal boundaries, and human-authority requirements.
 
-transparent
+## Interpreter
 
-human‑directed
+Helps clarify what kind of failure occurred and how the situation should be understood without turning explanation into action.
 
-doctrine‑aligned
+## State
 
-It is never inferred or autonomous.
+Preserves bounded continuity, trusted status, prior context, and recovery anchors.
 
-Architectural Pattern
-1. Schema Validation Gate
-Immediately after ECHO produces structured output, the deterministic layer validates it.
+## HUD
 
-If validation fails:
+Surfaces the failure in a human-readable way so the operator can understand the situation quickly.
 
-the workflow does not proceed
+## Execution
 
-the operator receives the invalid output
+Structures workflows to minimize failure risk and avoid ambiguous action paths.
 
-the system requests approval or correction
+## Integrity
 
-This prevents unsafe or malformed actions from propagating.
+Checks whether the system remains inside safe boundaries and whether the current state can still be trusted.
 
-2. Human Approval Sub‑Workflow
-A minimal deterministic approval flow:
+## Evolution
 
-surfaces the invalid or risky output
+Uses lessons from failures to improve documentation, templates, workflows, and safety patterns through human-approved refinement.
 
-explains the failure
+---
 
-requests operator decision
+# Recovery Discipline
 
-resumes or halts based on human input
+ECHO V2 treats recovery as part of safety.
 
-This keeps the system safe without blocking the entire pipeline.
+A system is not safe only because it works during clean execution.
 
-3. Compensation Logic
-Compensation is explicit and deterministic.
+It must also remain safe when something breaks.
 
-Examples (architectural only):
+Recovery discipline asks:
 
-reversing a file write
+* What is the last trusted state?
+* What records are verified?
+* What artifacts are stale or damaged?
+* What actions were completed?
+* What actions were blocked?
+* What assumptions are no longer safe?
+* What requires operator approval before continuing?
 
-deleting a created record
+A conservative recovery pattern is:
 
-restoring a previous state snapshot
+```text
+Stop
+→ inspect
+→ identify trusted evidence
+→ separate trusted from untrusted records
+→ rebuild only from verified materials
+→ require operator approval
+→ resume with clear scope
+```
 
-sending a corrective command
+This prevents a damaged workflow from becoming a source of silent corruption.
 
-notifying the operator of partial completion
+---
 
-Compensation is always:
+# Why This Matters
 
-human‑directed
+Failure handling is where unsafe systems often become dangerous.
 
-doctrine‑aligned
+A system that behaves safely during normal use can still become unsafe if it:
 
-transparent
+* retries blindly
+* repairs itself silently
+* hides partial completion
+* continues from corrupted state
+* treats uncertainty as permission
+* allows model output to override validation
+* expands access during recovery
+* fails to tell the human what happened
 
-predictable
+ECHO rejects that pattern.
 
-Why This Matters
-This subsystem ensures:
+Failure should not become autonomy.
 
-no silent failures
+Recovery should not become permission.
 
-no partial corruption
+Compensation should not become improvisation.
 
-no autonomous retries
+---
 
-no hidden state
+# Public Safety Boundary
 
-no agent‑style recovery loops
+This document intentionally avoids publishing:
 
-full human authority
+* private doctrine
+* internal enforcement logic
+* protected packet structures
+* operational scripts
+* private trust-zone details
+* family/company implementation details
+* sensitive recovery mechanisms
+* environment-specific execution behavior
 
-deterministic behavior
+Only the public architectural pattern is described here.
 
-safe orchestration
+Actual implementation should remain local, bounded, operator-controlled, and appropriate to the deployment environment.
 
-It reinforces ECHO’s identity as a cognitive exoskeleton, not an autonomous agent.
+---
 
-Interaction With Other Layers
-Although not a cognitive layer, this subsystem interacts with the entire stack:
+# Status
 
-Doctrine Layer  
-Defines boundaries, escalation rules, and compensation philosophy.
+This subsystem is currently defined at the public architectural level.
 
-Interpreter Layer  
-Ensures failure responses remain identity‑aligned.
+It is aligned with ECHO’s V2 direction, including:
 
-State Layer  
-Provides continuity for compensation and recovery.
+* governed execution
+* fail-closed behavior
+* operator authorization
+* deterministic workflow design
+* recovery discipline
+* public/private boundary separation
+* human-directed compensation logic
 
-HUD Layer  
-Surfaces failure context, relevance, and operator‑critical information.
+Future public refinements may include:
 
-Execution Layer  
-Structures intent to minimize failure risk and maximize determinism.
+* generic compensation templates
+* public-safe failure categories
+* operator decision patterns
+* validation design notes
+* recovery-status terminology
+* implementation-agnostic safety checklists
 
-Integrity Layer  
-Validates correctness and detects drift or unsafe patterns.
+No protected internal mechanisms are included in this public specification.
 
-Evolution Layer  
-Refines failure‑handling heuristics over time.
+---
 
-Design Rationale
-Failure handling is not a cognitive function.
-It is an operational discipline that supports the deterministic environment in which ECHO operates.
+# Summary
 
-This subsystem exists outside the Seven‑Layer Cognitive Architecture because:
+The Failure Handling & Compensation subsystem ensures that ECHO-derived systems remain safe when things go wrong.
 
-it governs external workflows, not internal cognition
+Its core commitments are:
 
-it is part of the deterministic runtime, not the cognitive stack
+* detect failure early
+* stop unsafe continuation
+* surface the issue clearly
+* preserve human authority
+* avoid hidden retries
+* avoid silent repair
+* distinguish rollback from compensation
+* rebuild only from trusted evidence
+* keep recovery bounded and inspectable
 
-it supports Execution and Integrity without becoming one of them
+In ECHO, failure is not a reason to grant the system more authority.
 
-it is implementation‑agnostic and environment‑agnostic
-
-This preserves the conceptual purity of the Seven Layers while adding the operational maturity required for real‑world use.
-
-Security & Privacy Note
-No compensation logic, internal rules, or implementation details are published here.
-Only the architectural description is public.
-
-All actual failure‑handling behavior remains:
-
-private
-
-local‑only
-
-operator‑controlled
-
-implementation‑specific
-
-Status
-This subsystem is:
-
-architecturally defined
-
-aligned with ECHO doctrine
-
-compatible with deterministic workflow engines
-
-ready for integration into Execution and Integrity documentation
-
-Future refinements will focus on:
-
-structured compensation templates
-
-doctrine‑aligned escalation patterns
-
-operator‑centric recovery flows
-
-advanced validation schemas
+Failure is a reason to narrow scope, restore clarity, and return control to the human.
