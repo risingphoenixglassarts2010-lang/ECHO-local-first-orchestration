@@ -1,409 +1,281 @@
-# ECHO
+# ECHO — Local-First Governed AI Runtime
 
-## A Local-First Architecture for Human-Directed AI Governance
-
-ECHO is a modular governance architecture for building AI systems that remain **local-first, human-directed, bounded, inspectable, recoverable, and safe by design**.
-
-ECHO is not a chatbot.
-ECHO is not a single assistant.
-ECHO is not a personality.
-ECHO is not an autonomous agent trying to run a person’s life.
-
-ECHO is a pattern for building AI systems that preserve human agency while using AI to reduce cognitive friction, organize intent, and route work into safe, deterministic execution paths.
-
-At its simplest:
-
-> **The model reasons.**
-> **The architecture governs.**
-> **Deterministic systems execute.**
-> **The human remains sovereign.**
+### The model proposes. The architecture governs. The human authorizes.
 
 ---
 
-# Current Direction: ECHO V2
+## The Problem
 
-ECHO has moved beyond its initial architecture-only release.
+AI systems are being connected to the real world at scale.
 
-The first public materials established the conceptual structure, design philosophy, and seven-layer governance model. ECHO V2 is focused on hardening that architecture into a more practical governed-runtime pattern.
+They write files. Call APIs. Trigger workflows. Modify databases. Interact with running software. Affect systems that affect other systems.
 
-The current V2 focus includes:
+Once a model is connected to tools, the safety question changes.
 
-* operator-directed authorization
-* one-use execution packets
-* independent verification records
-* fail-closed behavior
-* rollback and recovery discipline
-* local-first runtime assumptions
-* bounded tool and execution pathways
-* clear separation between public architecture and private operational substrate
+It is no longer enough to ask:
 
-ECHO V2 treats recovery, auditability, and restraint as first-class design requirements.
+> Did the model produce a reasonable answer?
 
-The goal is not to make AI act with fewer limits.
+You also have to ask:
 
-The goal is to make AI systems **more governable, more inspectable, and less able to exceed human intent**.
+> Who decided the AI was allowed to act?
 
----
+In many agent-style systems, that boundary is uncomfortably blurry. A model can describe an action as routine, necessary, safe, reversible, or implied by prior approval. But none of those descriptions should grant execution rights.
 
-# ECHO vs. Echo
+ECHO was built to solve that problem structurally — not through policy, not through guidelines, but through architecture.
 
-This project uses two related but distinct terms.
-
-## ECHO
-
-**ECHO** is the architecture.
-
-It is the modular governance system: the principles, layers, trust boundaries, safety logic, execution rules, and design patterns that can be adapted into different domains.
-
-ECHO can be used to design systems for:
-
-* personal productivity support
-* cognitive-assistive tools
-* business operations
-* local-first automation
-* family or company systems
-* institutional AI governance
-* domain-specific safety wrappers
-* future certification or “ECHO-Shielded” review models
-
-ECHO is the constitutional pattern.
-
-## Echo
-
-**Echo** is a private implementation of that architecture.
-
-Echo is the name of my own family/company/local assistant instance: an adaptive system shaped around my household, business, creative work, tools, files, and workflows.
-
-Echo is not the same thing as ECHO.
-
-> **ECHO is the architecture.**
-> **Echo is one private implementation of that architecture.**
-
-This distinction matters because ECHO can generate many different governed systems without exposing, duplicating, or depending on my private family/company instance.
+**A model running inside ECHO cannot grant itself permission to act. Not because it is asked not to. Because permission lives somewhere the model cannot reach.**
 
 ---
 
-# Why ECHO Exists
+## What ECHO Is
 
-AI systems are becoming more capable, but capability alone does not make them safe.
+ECHO is a local-first governance architecture for AI systems.
 
-Many AI systems fail because they blur boundaries:
+It is not a chatbot, a companion, or an autonomous agent.
 
-* conversation becomes dependency
-* assistance becomes persuasion
-* memory becomes surveillance
-* personalization becomes identity-shaping
-* automation becomes loss of human control
-* convenience becomes invisible risk
+It is the control structure that goes around those things — the layer that determines whether a proposed action is authorized before anything executes.
 
-ECHO exists to solve a different problem:
-
-> **How do we let AI help without letting AI quietly take over the parts of life that must remain human?**
-
-ECHO is built around restraint.
-
-It separates:
-
-* reasoning from execution
-* visibility from access
-* memory from meaning
-* assistance from authority
-* interface from governance
-* proposal from permission
-* public architecture from private substrate
-
----
-
-# Core Principles
-
-## Human Direction Comes First
-
-The human remains the source of intent, approval, judgment, and final authority.
-
-AI may help clarify, structure, summarize, route, or prepare.
-
-It does not become the decision-maker.
-
-## Local-First by Default
-
-Where possible, ECHO favors local systems, local files, local models, and local execution.
-
-Local-first design reduces unnecessary exposure, protects privacy, and keeps sensitive workflows closer to the people they serve.
-
-## Deterministic Execution
-
-ECHO does not treat natural-language output as permission to act.
-
-The preferred pattern is:
+The core pattern:
 
 ```text
 Human intent
-→ AI interpretation
-→ structured output
-→ schema validation
-→ deterministic workflow
-→ human approval when needed
-→ logged execution
+→ AI-assisted interpretation
+→ structured proposal
+→ governance verification
+→ operator authorization
+→ deterministic execution
+→ auditable record
 ```
 
-This prevents the model from directly controlling tools, files, systems, or high-impact actions.
+At every step, the model is a reasoning component.
 
-## Authorization Is Not Assumed
+It is not the authority.
 
-ECHO does not treat a model response, generated plan, or plausible instruction as authority.
-
-A governed system should be able to distinguish between:
-
-* a suggestion
-* a proposed action
-* an authorization request
-* an operator decision
-* a verified execution packet
-* an actual permitted execution
-
-This distinction is central to ECHO V2.
-
-## Trust Boundaries Matter
-
-Not all information should be visible to all systems.
-
-ECHO uses trust-zone thinking to separate public, operational, private, sensitive, and locked material.
-
-Controlled visibility, perception governance, and trust-zone routing are part of the architecture’s safety model.
-
-## Perception Is a Safety Surface
-
-An AI system can create harm not only by acting, but by seeing too much, combining too much, or inferring too much.
-
-ECHO treats perception itself as something that must be governed.
-
-A system cannot leak, misuse, summarize, or infer from information it was never allowed to access.
-
-## Systems Should Fail Closed
-
-When an ECHO-derived system becomes confused, unsafe, overloaded, expired, unauthorized, or misaligned, it should stop, narrow, redirect, escalate, or close safely.
-
-Failure should not expand into improvisation.
-
-Failure handling should be visible, predictable, and bounded.
-
-## Recovery Is Part of Safety
-
-A safe system is not only one that works when everything goes well.
-
-It must also behave safely when files are missing, artifacts are stale, packets are damaged, records conflict, or a build chain has to be reconstructed.
-
-ECHO V2 treats recovery as a governance problem, not just a maintenance problem.
+It proposes. The architecture governs. The human authorizes.
 
 ---
 
-# The ECHO Pattern
+## Why This Matters
 
-ECHO can be understood as a layered architecture:
+The AI industry is moving quickly toward more capable, more connected, more autonomous systems.
 
-```text
-Doctrine / Constitutional Layer
-        ↓
-Interpreter / Governance Layer
-        ↓
-State / Context Layer
-        ↓
-HUD / Salience Layer
-        ↓
-Execution / Workflow Layer
-        ↓
-Integrity / Safety Layer
-        ↓
-Evolution / Review Layer
-```
+The pitch is that this is what progress looks like: models that can do things, not just say things.
 
-The public ECHO architecture describes this as a seven-layer cognitive exoskeleton where each layer has a distinct responsibility:
+But tool-using AI systems introduce failure modes that ordinary chat systems do not.
 
-* identity
-* interpretation
-* continuity
-* salience
-* structured execution
-* integrity
-* guided refinement
+### Scope Inflation
 
-The purpose of this layering is simple:
+A model is asked to diagnose a narrow problem. It frames each additional permission as reasonable and quietly accumulates more authority than the original task required.
 
-> **No single model output should carry the whole burden of safety.**
-> **Safety should be architectural.**
+### Stale Permission
+
+An authorization meant for one task persists and gets reused for another task that should have required fresh approval.
+
+### Benign Framing
+
+A potentially dangerous action is described as cleanup, repair, normalization, or maintenance, and approved because the language sounds harmless.
+
+### Recovery Drift
+
+Something fails. The model tries to recover. In doing so, it expands the system’s footprint without explicit authorization.
+
+These are not exotic failure modes. They are what happens when language-model fluency meets tool access without a governed authority boundary.
+
+ECHO addresses these problems through structure, not trust.
 
 ---
 
-# Governed Runtime Direction
+## What Has Been Built
 
-ECHO V2 is exploring how a local-first AI system can move from language output into governed execution without allowing the model to become the authority.
+ECHO is not only a concept document. It is an active local prototype.
 
-The emerging runtime pattern uses:
+The current implementation includes three interlocking governance branches:
 
-* explicit operator direction
-* structured authorization packets
-* verification before execution
-* one-use execution permissions
-* recorded decisions
-* bounded scopes
-* local-first assumptions
-* fail-closed handling
-* recovery from damaged or stale artifacts
+### J Branch — Runtime Session Management
 
-This work is intentionally conservative.
+Roughly 200 stages governing live AI sessions:
 
-ECHO does not assume that because an AI can generate a command, workflow, plan, or document, it should be allowed to execute it.
+* turn management
+* context control
+* trust-zone enforcement
+* session closeout
+* display records
+* governed multi-turn local model sessions
+* cryptographically verifiable records of session decisions and constraints
 
-The safer pattern is:
+### PR Branch — Authorization Governance Chain
 
-```text
-Model proposes.
-Governance verifies.
-Human authorizes.
-Deterministic systems execute.
-Records remain inspectable.
-```
+228+ stages covering:
 
----
+* one-use authorization packets
+* independent verification
+* operator decision records
+* expiry checking
+* SHA256-chained artifact integrity
+* fail-closed recovery
+* closure audits
 
-# Proof of Modularity: Danny
+Every new capability passes through this chain before it is permitted to act.
 
-ECHO is not only a theory.
+### R Branch — Reusable Execution Components
 
-The same architecture has been used to produce a separate bounded system specification called **Danny**.
+60+ stages covering:
 
-Danny is a local-first, session-bounded cognitive support tool designed to help a user move from overwhelm to clarity through one short deterministic loop.
+* governed runtime execution
+* launcher authorization
+* consumption records
+* replay prevention
+* syntax validation before invocation
+* post-execution evidence scanning
 
-Danny is explicitly defined as:
+Together, these branches form a system where:
 
-* not a chatbot
-* not a companion
-* not a therapeutic agent
-* not a personality system
-* not an open-ended planner
+* authorization packets are single-use, time-limited, and cryptographically bound
+* every stage reads and hashes the previous verified artifact before proceeding
+* expired, consumed, or mismatched packets cause fail-closed behavior
+* every action taken and every action explicitly forbidden is recorded
+* the human operator remains the source of authorization
 
-Danny demonstrates that ECHO can generate a domain-specific system with:
-
-* a constitutional core
-* a deterministic runtime loop
-* session safety rules
-* trust boundaries
-* failure handling
-* use-case limits
-* a glossary to prevent conceptual drift
-* a coder handoff document
-* implementation constraints
-* acceptance criteria
-
-That is the important point:
-
-> **ECHO is a generative governance architecture.**
-
-It can produce bounded, domain-specific AI systems without turning every system into an open-ended agent.
-
-Danny is one example. Others may follow.
+The system has completed its first active local adapter contact: checking Docker, n8n, and Ollama availability under governed authorization, pre-execution verification, post-execution verification, and closure audit.
 
 ---
 
-# What ECHO Is
+## SCAR — Safety-Critical AI Runtime
 
-ECHO is:
+The runtime pattern proven by ECHO is being formalized as **SCAR: Safety-Critical AI Runtime**.
 
-* a local-first AI governance architecture
-* a human-directed orchestration pattern
-* a way to separate reasoning from execution
-* a framework for bounded AI systems
-* a method for building domain-specific safety layers
-* a structure for reducing cognitive friction
-* a pattern for preserving human agency
-* a foundation for future ECHO-derived tools
-* a public architecture with private implementation boundaries
+SCAR defines the minimum guarantees a governed AI runtime should provide:
 
----
+1. Model outputs are proposals only — never direct execution authority.
+2. Protected actions require explicit operator authorization.
+3. Verification logic must be deterministic and auditable.
+4. Failure must be fail-closed, not silently degraded into a less-governed path.
+5. Sensitive state should be stored and verified locally by default.
+6. Action records should be reconstructable.
+7. Memory and persistence cannot silently become operating authority.
+8. Execution should be rollback-aware.
 
-# What ECHO Is Not
+ECHO is the first implementation path for the SCAR pattern.
 
-ECHO is not:
-
-* a chatbot
-* a companion AI
-* an autonomous agent
-* a surveillance system
-* a therapy system
-* a replacement for human judgment
-* a cloud-first platform
-* a claim that AI should become a person
-* a claim that AI should run human life
-* a system where model output becomes execution authority
-
-ECHO is not about making AI more powerful at any cost.
-
-It is about making AI more governable.
+→ **[Read the SCAR Specification](docs/SCAR.md)**
 
 ---
 
-# The Central Claim
+## Origin
 
-ECHO begins from a simple belief:
+ECHO was not built by a research lab or funded institution.
 
-> **AI should help humans act with more clarity, not less agency.**
+It was built by one person recovering from a traumatic brain injury, managing a complex civil legal case, and trying to create a system that would not lose context, drop threads, or silently drift when the human operator could not afford for that to happen.
 
-The goal is not to build systems that imitate people, replace relationships, or quietly assume authority.
+The original need was practical: organize and reason across hundreds of pages of legal evidence while preserving continuity, traceability, and operator control.
 
-The goal is to build systems that support human intent while remaining bounded by human values, explicit rules, trust boundaries, and accountable execution.
+Most LLM tools could help in fragments, but they could not provide the governed continuity the task required.
 
-ECHO refuses to treat capability as permission.
+So ECHO was built as cognitive scaffolding first.
 
-It asks a harder question:
+The governance architecture emerged from that need:
 
-> **What should this system never be allowed to do?**
+* hold when uncertain
+* fail closed
+* surface failures clearly
+* rebuild only from trusted state
+* preserve auditable continuity
+* never let the reasoning component become the authority component
 
----
-
-# Public Release Boundary
-
-ECHO is an active architecture, documentation, and governed-runtime proof project.
-
-The public materials describe the outer architecture, principles, safety posture, and implementation patterns.
-
-Private operational materials, family/company-specific implementation details, internal trust-boundary logic, sensitive execution materials, and protected mechanisms are not included in the public release.
-
-That separation is intentional.
-
-ECHO itself teaches that sensitive systems should not be exposed without a trust boundary.
+The cognitive scaffolding and the AI safety architecture came from the same place.
 
 ---
 
-# Public-Safe Summary
+## Longer Vision
 
-ECHO is a local-first, human-directed AI governance architecture for building bounded systems that clarify intent, protect agency, govern perception, route work through deterministic execution, and keep humans in authority.
+ECHO is the foundation layer for a larger governed local runtime.
 
-Echo is a private personal implementation of that architecture.
+The immediate build target is **FORGE 1** — a governed local AI runtime for manufacturing, design, and operational coordination.
 
-Danny is an early proof that the ECHO pattern can generate separate, domain-specific systems with strict constitutional limits and real engineering handoff materials.
+The long-term vision is a system where Echo can function as a shop-foreman-style AI presence across a company and household environment, connected to local tools, workflows, records, and production systems — but always through governed authorization boundaries.
 
-ECHO V2 extends the architecture toward governed runtime proof work, including authorization packets, verification records, fail-closed behavior, and recovery discipline.
+The architecture that governs whether a local model can check Docker availability is the same architecture intended to govern whether Echo can authorize a production action.
+
+That is the point.
+
+The governance rails are built first. Capability enters one narrow gate at a time.
 
 ---
 
-# Guiding Sentence
+## Documentation
 
-> **The face can change. The guardrails do not.**
+| Document                                               | Description                                                       |
+| ------------------------------------------------------ | ----------------------------------------------------------------- |
+| [SCAR Specification](docs/SCAR.md)                     | Formal runtime governance standard ECHO implements                |
+| [Architecture Diagram](docs/Architecture-Diagram.md)   | Seven-layer cognitive governance stack                            |
+| [Development Status](docs/Development-Status.md)       | Current prototype capabilities and honest limitations             |
+| [Failure Handling](docs/Failure-Handling.md)           | How the system behaves when things go wrong                       |
+| [Roadmap](docs/Roadmap.md)                             | Phased development direction                                      |
+| [The Machine That Won’t Let Itself Run](docs/Paper.md) | Plain-language explanation of the architecture and why it matters |
 
-ECHO can support different interfaces for different contexts: personal, business, medical, educational, institutional, creative, operational, or assistive.
+---
 
-But the underlying commitments remain the same:
+## ECHO vs. Echo
 
-* human authority
-* bounded access
-* local-first design
-* deterministic execution
-* explicit authorization
-* visible failure handling
-* recovery discipline
-* privacy by architecture
-* no hidden autonomy
-* no role confusion
-* no unchecked AI power
+**ECHO** is the architecture — the governance pattern, design principles, public documentation, and implementation scaffold.
 
-That is ECHO.
+**Echo** is a private implementation of that architecture, shaped around a specific household, business, and operational context.
+
+ECHO can generate many different governed systems.
+
+Echo is one of them.
+
+This distinction matters: the public architecture does not expose the private implementation.
+
+---
+
+## Core Commitments
+
+These do not change regardless of what the system is connected to:
+
+* Human authority is final.
+* The model proposes; it does not authorize.
+* Permissions are explicit, bounded, and single-use.
+* Failure is visible, not hidden.
+* Recovery rebuilds from trusted evidence only.
+* Local-first by default.
+* No hidden autonomy.
+* No unchecked AI power.
+
+---
+
+## Status
+
+**Active development. Not production-ready. Not autonomous.**
+
+ECHO is a research and development prototype under active construction.
+
+It should not be used as the sole control system for safety-critical, medical, financial, legal, or irreversible operations.
+
+What it is:
+
+A working local prototype of a governed AI runtime architecture designed to keep model capability separated from execution authority.
+
+---
+
+## License
+
+MIT License — see [LICENSE](LICENSE) for terms.
+
+---
+
+## Contact and Collaboration
+
+The right collaborator for this project is someone who can read an architecture and understand why the bureaucracy is the point.
+
+If that is you:
+
+* read the SCAR specification
+* read the plain-language paper
+* review the development status
+* look at what has already been built
+
+The face can change.
+
+The guardrails do not.
